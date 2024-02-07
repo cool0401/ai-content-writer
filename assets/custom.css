@@ -1,0 +1,174 @@
+:root {
+    --chatbot-color-light: #F3F3F3;
+    --chatbot-color-dark: #121111;
+}
+
+#status_display {
+    display: flex;
+    min-height: 2.5em;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+#status_display p {
+    font-size: .85em;
+    font-family: monospace;
+    color: var(--body-text-color-subdued);
+}
+
+#usage_display {
+    height: 1em;
+}
+
+#usage_display p {
+    padding: 0 1em;
+    font-size: .85em;
+    font-family: monospace;
+    color: var(--body-text-color-subdued);
+}
+
+/* list */
+ol:not(.options),
+ul:not(.options) {
+    padding-inline-start: 2em !important;
+}
+
+/* Thank @Keldos-Li for fixing it */
+/* Light mode (default) */
+#chuanhu_chatbot {
+    background-color: var(--chatbot-color-light) !important;
+    color: #000000 !important;
+}
+
+input[type=number].svelte-1cl284s{
+    display: none;
+}
+
+/* Dark mode */
+.dark #chuanhu_chatbot {
+    background-color: var(--chatbot-color-dark) !important;
+    color: #FFFFFF !important;
+}
+
+#chuanhu_chatbot {
+    height: 100%;
+    min-height: 400px;
+}
+
+[class *="message"] {
+    border-radius: var(--radius-xl) !important;
+    border: none;
+    padding: var(--spacing-xl) !important;
+    font-size: var(--text-md) !important;
+    line-height: var(--line-md) !important;
+    min-height: calc(var(--text-md)*var(--line-md) + 2*var(--spacing-xl));
+    min-width: calc(var(--text-md)*var(--line-md) + 2*var(--spacing-xl));
+}
+
+[class *="message-buttons"],
+[class *="message-row"] {
+    padding: unset !important;
+    line-height: unset !important;
+    min-height: unset;
+}
+
+[class *="user"] {
+    color: #FFFFFF !important;
+}
+
+[data-testid="bot"] {
+    max-width: 85%;
+    border-bottom-left-radius: 0 !important;
+}
+
+[data-testid="user"] {
+    max-width: 85%;
+    width: auto !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+/* Table */
+table {
+    margin: 1em 0;
+    border-collapse: collapse;
+    empty-cells: show;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+td,
+th {
+    border: 1.2px solid var(--border-color-primary) !important;
+    padding: 0.2em;
+}
+
+thead {
+    background-color: rgba(175, 184, 193, 0.2);
+}
+
+thead th {
+    padding: .5em .2em;
+}
+
+/* Inline code */
+#chuanhu_chatbot code {
+    display: inline;
+    white-space: break-spaces;
+    border-radius: 6px;
+    margin: 0 2px 0 2px;
+    padding: .2em .4em .1em .4em;
+    background-color: rgba(175, 184, 193, 0.2);
+}
+
+/* Code block */
+#chuanhu_chatbot pre code {
+    display: block;
+    overflow: auto;
+    white-space: pre;
+    background-color: hsla(0, 0%, 0%, 80%) !important;
+    border-radius: 10px;
+    padding: 1.4em 1.2em 0em 1.4em;
+    margin: 1.2em 2em 1.2em 0.5em;
+    color: #FFF;
+    box-shadow: 6px 6px 16px hsla(0, 0%, 0%, 0.2);
+}
+
+#chuanhu_chatbot {
+    overflow: auto;
+    height: 750px;
+}
+
+#source_review_column {
+    margin-top: 3.1rem;
+}
+
+/* #component-22 {
+    border: solid 1px;
+} */
+
+.table-wrap.svelte-1anhtf6.svelte-1anhtf6.svelte-1anhtf6 {
+    border: 0px; 
+}
+#source_dataframe{
+    height: 300px;
+}
+table.svelte-1anhtf6.svelte-1anhtf6.svelte-1anhtf6{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#pdf_reference{
+    height: 470px;
+    overflow: auto;
+}
+
+/* #component-16{
+    display: none;
+} */
+
+#component-11{
+    padding: 0;
+}
+
+.controls-wrap .svelte-1anhtf6{
+    display: none;
+}

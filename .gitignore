@@ -1,0 +1,12 @@
+app_old.py
+app-chainlit.py
+__pycache__/*
+grad
+myenv/
+storage/
+app - Copy.py
+data/
+temp/
+backup_path/
+app_1.py
+*.env
