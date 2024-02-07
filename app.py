@@ -355,6 +355,7 @@ def upload_file(files, index_key):
                     google_source_urls.append(['question']+value)
                     # Do something with the file content, e.g., print it
         # Load or update the index
+        print(google_source_urls)
     else:
         index_needs_update[index_key] = True
         load_or_update_index(directory_path, index_key)
@@ -667,7 +668,31 @@ def update_source_info():
             source_info += f"File Name: {file_name}\n, Page Label: {page_label}\n\n"
 
         return source_info
-
+    
+def update_url_info():
+    global google_source_urls
+    global google_upload_url
+    directory_path = f"data/url/{current_session_id}"
+    if not os.path.exists(directory_path):
+        os.makedirs(directory_path)
+    google_source_urls = [['No data', 'No data', 'No data', 'No data', 'No data',
+                       'No data', 'No data', 'No data', 'No data', 'No data', 'No data']]
+    file_list = os.listdir(directory_path)
+    for file_name in file_list:
+        file_path = os.path.join(directory_path, file_name)
+        # Check if the item in the directory is a file (not a subdirectory)
+        if os.path.isfile(file_path):
+            with open(file_path, 'r') as file:
+                file_content = file.read()
+                google_source_urls = []
+                value = file_content.strip().split('\n')
+                value = value[:10]
+                for val in value:
+                    google_upload_url += f"siteSearch={val}&"
+                if len(value) < 10:
+                    value.extend(['No data'] * (10 - len(value)))
+                # temp_arr.append(['question']+value)
+                google_source_urls.append(['question']+value)
 
 def update_source():
     global response_sources
@@ -1193,6 +1218,7 @@ with gr.Blocks(css=customCSS, theme=wordlift_theme) as demo:
         lambda: gr.update(value=get_chat_history()), None, outputs=[chatbot]).then(
         lambda: gr.update(value=update_source()), None, outputs=source_dataframe).then(
             update_source_info, None, outputs=sources).then(
+            update_url_info, None, outputs=google_search_dataframe).then(
         lambda: gr.update(value=google_source_urls), None, outputs=google_search_dataframe).then(
             update_tender_info, inputs=[tender_dataframe], outputs=tender_dataframe).then(
             update_company_info, inputs=[company_dataframe], outputs=company_dataframe)
